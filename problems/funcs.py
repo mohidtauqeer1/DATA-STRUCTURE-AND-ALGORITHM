@@ -151,3 +151,26 @@ def PalindromRecursive(str):
         return False
 
     return PalindromRecursive(str[1:-1])
+
+
+def Sort10(array):
+    negative = []
+    positive = []
+
+    for value in array:
+        if value < 0:
+            negative.append(value)
+        else:
+            positive.append(value)
+
+    negative = Sort4(negative)
+    positive = Sort4(positive)
+    result = []
+
+    for i in range(max(len(negative), len(positive))):
+        if i < len(negative):
+            result.append(negative[i])
+        if i < len(positive):
+            result.append(positive[i])
+
+    return result
